@@ -49,35 +49,37 @@ class _InstagramCloneHomeState extends State<InstagramCloneHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        title: Text(
-          'Instagram',
-          style: GoogleFonts.lobsterTwo(
-            fontSize: 32,
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.favorite_outline,
-              size: 32,
-            ),
-            onPressed: () {
-              print("Tab Favorite");
-            },
-          ),
-          IconButton(
-            icon: const Icon(
-              CupertinoIcons.paperplane,
-              size: 32,
-            ),
-            onPressed: () {
-              print("Tab Paperplane");
-            },
-          )
-        ],
-      ),
+      appBar: index == 0
+          ? AppBar(
+              centerTitle: false,
+              title: Text(
+                'Instagram',
+                style: GoogleFonts.lobsterTwo(
+                  fontSize: 32,
+                ),
+              ),
+              actions: [
+                IconButton(
+                  icon: const Icon(
+                    Icons.favorite_outline,
+                    size: 32,
+                  ),
+                  onPressed: () {
+                    print("Tab Favorite");
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(
+                    CupertinoIcons.paperplane,
+                    size: 32,
+                  ),
+                  onPressed: () {
+                    print("Tab Paperplane");
+                  },
+                )
+              ],
+            )
+          : null,
       body: InstagramBody(index: index),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
